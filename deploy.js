@@ -23,6 +23,8 @@ const deploy = (async () => {
   // deploy contract with initial newMessage
   // specify gas limit and source account
   const contract = await new web3.eth.Contract(JSON.parse(interface))
-  .deploy({ data: bytecode, arguments: [ 'hello world' ] })
+  // // deploy inbox contract with initial message
+  // .deploy({ data: bytecode, arguments: [ 'hello world' ] })
+  .deploy({ data: bytecode })
   .send({ gas: '1000000', from: accounts[0] })
 })()
