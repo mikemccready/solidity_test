@@ -2,10 +2,11 @@ const path = require('path');
 const fs = require('fs');
 const solc = require('solc');
 
-// read file stream from contract
+// read file stream from contracts
 const inboxPath = path.resolve(__dirname, 'contracts', 'Inbox.sol');
-const source = fs.readFileSync(inboxPath, 'utf8');
+const lotteryPath = path.resolve(__dirname, 'contracts', 'Lottery.sol')
 
-// pass file stream to solidity compiler,
-// export 'Inbox' contract
-module.exports = solc.compile(source, 1).contracts[':Inbox'];
+const source = fs.readFileSync(lotteryPath, 'utf8');
+
+// pass file stream to solidity compiler, export contract
+module.exports = solc.compile(source, 1).contracts[':Lottery'];
