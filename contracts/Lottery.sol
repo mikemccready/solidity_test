@@ -32,13 +32,12 @@ contract Lottery {
     players = new address[](0);
   }
 
-  function getPlayers() public view returns (address[]) {
-    return players;
-  }
-
   modifier restricted() {
-    // runs require statement before code in the function block
     require(msg.sender == manager);
     _;
+  }
+
+  function getPlayers() public view returns (address[]) {
+    return players;
   }
 }
